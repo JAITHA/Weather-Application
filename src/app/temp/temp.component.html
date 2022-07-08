@@ -1,0 +1,94 @@
+<div class="search">
+    <form #form = "ngForm" (submit)="onsubmit()">
+        <input type="text" placeholder="Search" name="city" [(ngModel)]="cityname">
+    </form>
+</div>
+
+<div class="container" *ngIf="weatherData">
+  <div class="upper-session">
+    <img src="../../assets/dark3.jpg" />
+    <!-- <img src="../../assets/dark2.jpg"/> -->
+    <!-- <img src="../../assets/dark2.jpg" *ngif="weatherData.main.temp <= 15" /> -->
+
+
+    <div class="weather-data">
+      <div class="location">{{ weatherData.name }}</div>
+      <div class="temp">{{ weatherData.main.temp | number: "1.0-0" }}°C</div>
+    </div>
+  </div>
+  <div class="lower-session">
+  <div class="more-onfo-lable">More Information</div>
+  <div class="more-info-container">
+    <mat-grid-list cols="2" rowHeight="2:1">
+      <mat-grid-tile class="radius-col">
+        <img
+          src="https://img.icons8.com/ios-filled/50/22C3E6/temperature--v1.png"
+        />
+        <span class="icon-base-title">{{ weatherData.main.tempmin }}°C</span>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <img src="https://img.icons8.com/color/60/000000/temperature--v1.png" />
+        <span class="icon-base-title"
+          >{{ weatherData.main.temp_max | number: "1.0-0" }}°C</span
+        >
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <img
+          src="https://img.icons8.com/external-kmg-design-flat-kmg-design/50/000000/external-rainy-weather-kmg-design-flat-kmg-design.png"
+        />
+        <span class="icon-base-title-rainy"
+          >{{ weatherData.main.humidity }}%</span
+        >
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <img
+          src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/60/000000/external-kmh-racing-flaticons-lineal-color-flat-icons-2.png"
+        />
+        <span class="icon-base-title"
+          >{{ weatherData.wind.speed }}<br />km/h</span
+        >
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+</div>
+</div>
+
+<!-- <div class="container">
+  <div class="upper-session">
+    <img src="../../assets/dark3.jpg" />
+    <img src="../../assets/dark2.jpg" *ngif="14 <= 15" />
+
+    <div class="weather-data">
+      <div class="location">Wellington</div>
+      <div class="temp">{{ 14.4 | number: "1.0-0" }}°C</div>
+    </div>
+  </div>
+  <div class="lower-session"></div>
+  <div class="more-onfo-lable">More Information</div>
+  <div class="more-info-container">
+    <mat-grid-list cols="2" rowHeight="2:1">
+      <mat-grid-tile class="radius-col">
+        <img
+            src="https://img.icons8.com/ios-filled/50/22C3E6/temperature--v1.png"
+          />
+        <span class="icon-base-title">{{ 19 | number: "1.0-0" }}°C</span>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <img src="https://img.icons8.com/color/60/000000/temperature--v1.png" />
+        <span class="icon-base-title">{{ 20 | number: "1.0-0" }}°C</span>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <img
+          src="https://img.icons8.com/external-kmg-design-flat-kmg-design/50/000000/external-rainy-weather-kmg-design-flat-kmg-design.png"
+        />
+        <span class="icon-base-title-rainy">{{ 85 | number: "1.0-0" }}%</span>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <img
+          src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/60/000000/external-kmh-racing-flaticons-lineal-color-flat-icons-2.png"
+        />
+        <span class="icon-base-title">{{ 11.83 | number: "1.0-0" }}<br>km/h</span>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+</div> -->
